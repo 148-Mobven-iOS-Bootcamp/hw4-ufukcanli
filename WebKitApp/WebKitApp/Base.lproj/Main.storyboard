@@ -11,7 +11,7 @@
         <!--Web View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="WebViewController" customModule="WebKitApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Web View Controller" id="BYZ-38-t0r" customClass="WebViewController" customModule="WebKitApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -27,29 +27,63 @@
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="mry-p1-c3U">
                                 <rect key="frame" x="197" y="438" width="20" height="20"/>
                             </activityIndicatorView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tbk-kS-gHq">
+                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                                <items>
+                                    <barButtonItem title="back" image="arrow.backward" catalog="system" id="yGm-Hw-quz">
+                                        <connections>
+                                            <action selector="toolbarButtonDidTap:" destination="BYZ-38-t0r" id="UNa-Wd-sSg"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="forward" image="arrow.forward" catalog="system" id="BqJ-XB-weI">
+                                        <connections>
+                                            <action selector="toolbarButtonDidTap:" destination="BYZ-38-t0r" id="KqM-Pz-RJa"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="refresh" image="arrow.clockwise" catalog="system" id="yeW-J0-Lvd">
+                                        <connections>
+                                            <action selector="toolbarButtonDidTap:" destination="BYZ-38-t0r" id="pK0-3t-uE5"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="safari" image="safari" catalog="system" id="jbW-BZ-TpQ">
+                                        <connections>
+                                            <action selector="toolbarButtonDidTap:" destination="BYZ-38-t0r" id="t97-Kf-aEE"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qdM-Bl-VvU" secondAttribute="trailing" id="07z-d3-GhE"/>
+                            <constraint firstItem="Tbk-kS-gHq" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="5BL-rX-i8Q"/>
                             <constraint firstItem="qdM-Bl-VvU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="XLk-Ey-Xbs"/>
                             <constraint firstItem="mry-p1-c3U" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="YiY-5A-WbR"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="qdM-Bl-VvU" secondAttribute="bottom" id="kBo-Fw-MA1"/>
+                            <constraint firstItem="Tbk-kS-gHq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="qNQ-zP-dZm"/>
                             <constraint firstItem="qdM-Bl-VvU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="qfG-ln-79o"/>
+                            <constraint firstItem="Tbk-kS-gHq" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="qnx-v7-is9"/>
                             <constraint firstItem="mry-p1-c3U" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ubM-xN-UnK"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="G8N-b4-2Rk"/>
                     <connections>
                         <outlet property="activityIndicator" destination="mry-p1-c3U" id="Dha-1t-KvJ"/>
+                        <outlet property="toolbar" destination="Tbk-kS-gHq" id="zso-Rj-4vn"/>
                         <outlet property="webView" destination="qdM-Bl-VvU" id="uUf-YQ-g6X"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-13" y="63"/>
+            <point key="canvasLocation" x="897.10144927536237" y="62.946428571428569"/>
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.backward" catalog="system" width="128" height="98"/>
+        <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
+        <image name="arrow.forward" catalog="system" width="128" height="98"/>
+        <image name="safari" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

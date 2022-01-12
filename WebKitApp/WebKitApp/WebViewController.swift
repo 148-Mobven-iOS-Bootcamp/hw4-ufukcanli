@@ -12,6 +12,7 @@ final class WebViewController: UIViewController {
 
     @IBOutlet weak var webView: WKWebView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var toolbar: UIToolbar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,9 +36,29 @@ final class WebViewController: UIViewController {
             }
         }
     }
+    
+    @IBAction func toolbarButtonDidTap(_ sender: UIBarButtonItem) {
+        switch sender.title {
+        case "back":
+            webView.goBack()
+        case "forward":
+            webView.goForward()
+        case "refresh":
+            webView.reload()
+        case "safari":
+            openWithSafari()
+        default: return
+        }
+    }    
 }
 
 private extension WebViewController {
+    
+    func openWithSafari() {
+        if let url = webView.url {
+            UIApplication.shared.open(url)
+        }
+    }
     
     func loadWebView() {
         let urlString = "https://ufukcanli.com"
