@@ -20,6 +20,21 @@ final class WebViewController: UIViewController {
         configureWebView()
         loadWebView()
     }
+    
+    override func observeValue(
+        forKeyPath keyPath: String?,
+        of object: Any?,
+        change: [NSKeyValueChangeKey : Any]?,
+        context: UnsafeMutableRawPointer?
+    ) {
+        if keyPath == "loading" {
+            if webView.isLoading {
+                activityIndicator.startAnimating()
+            } else {
+                activityIndicator.stopAnimating()
+            }
+        }
+    }
 }
 
 private extension WebViewController {
@@ -32,6 +47,12 @@ private extension WebViewController {
     }
     
     func configureWebView() {
+        webView.addObserver(
+            self,
+            forKeyPath: #keyPath(WKWebView.isLoading),
+            options: .new,
+            context: nil
+        )
         webView.uiDelegate = self
         webView.navigationDelegate = self
     }
