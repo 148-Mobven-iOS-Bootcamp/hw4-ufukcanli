@@ -11,10 +11,12 @@ import WebKit
 final class WebViewController: UIViewController {
 
     @IBOutlet weak var webView: WKWebView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureActivityIndicator()
         configureWebView()
         loadWebView()
     }
@@ -32,6 +34,13 @@ private extension WebViewController {
     func configureWebView() {
         webView.uiDelegate = self
         webView.navigationDelegate = self
+    }
+    
+    func configureActivityIndicator() {
+        activityIndicator.style = .large
+        activityIndicator.color = .darkGray
+        activityIndicator.startAnimating()
+        activityIndicator.hidesWhenStopped = true
     }
 }
 

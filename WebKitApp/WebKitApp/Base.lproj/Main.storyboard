@@ -24,17 +24,23 @@
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="mry-p1-c3U">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qdM-Bl-VvU" secondAttribute="trailing" id="07z-d3-GhE"/>
                             <constraint firstItem="qdM-Bl-VvU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="XLk-Ey-Xbs"/>
+                            <constraint firstItem="mry-p1-c3U" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="YiY-5A-WbR"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="qdM-Bl-VvU" secondAttribute="bottom" id="kBo-Fw-MA1"/>
                             <constraint firstItem="qdM-Bl-VvU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="qfG-ln-79o"/>
+                            <constraint firstItem="mry-p1-c3U" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ubM-xN-UnK"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="mry-p1-c3U" id="Dha-1t-KvJ"/>
                         <outlet property="webView" destination="qdM-Bl-VvU" id="uUf-YQ-g6X"/>
                     </connections>
                 </viewController>
