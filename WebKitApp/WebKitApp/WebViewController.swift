@@ -60,6 +60,18 @@ private extension WebViewController {
         }
     }
     
+//    func showHTMLinWebView() {
+//        let html = """
+//                    <!DOCTYPE html>
+//                    <html>
+//                        <body>
+//                           <h1 style="font-family: courier;">Hello, World!</h1>
+//                        </body>
+//                    </html>
+//                   """
+//        webView.loadHTMLString(html, baseURL: nil)
+//    }
+    
     func loadWebView() {
         let urlString = "https://ufukcanli.com"
         guard let url = URL(string: urlString) else { return }
