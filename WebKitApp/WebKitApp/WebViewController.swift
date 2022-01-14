@@ -14,12 +14,14 @@ final class WebViewController: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var toolbar: UIToolbar!
     
+    private let urlString = "https://ufukcanli.com"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureActivityIndicator()
         configureWebView()
-        loadWebView()
+        load(with: urlString)
     }
     
     override func observeValue(
@@ -39,14 +41,10 @@ final class WebViewController: UIViewController {
     
     @IBAction func toolbarButtonDidTap(_ sender: UIBarButtonItem) {
         switch sender.title {
-        case "back":
-            webView.goBack()
-        case "forward":
-            webView.goForward()
-        case "refresh":
-            webView.reload()
-        case "safari":
-            openWithSafari()
+        case "back": webView.goBack()
+        case "forward": webView.goForward()
+        case "refresh": webView.reload()
+        case "safari": openWithSafari()
         default: return
         }
     }    
@@ -60,20 +58,19 @@ private extension WebViewController {
         }
     }
     
-//    func showHTMLinWebView() {
-//        let html = """
-//                    <!DOCTYPE html>
-//                    <html>
-//                        <body>
-//                           <h1 style="font-family: courier;">Hello, World!</h1>
-//                        </body>
-//                    </html>
-//                   """
-//        webView.loadHTMLString(html, baseURL: nil)
-//    }
+    func load() {
+        let htmlString = """
+                            <!DOCTYPE html>
+                            <html>
+                                <body>
+                                    <h1 style="font-family: courier;">Hello, World!</h1>
+                                </body>
+                            </html>
+                         """
+        webView.loadHTMLString(htmlString, baseURL: nil)
+    }
     
-    func loadWebView() {
-        let urlString = "https://ufukcanli.com"
+    func load(with urlString: String) {
         guard let url = URL(string: urlString) else { return }
         let urlRequest = URLRequest(url: url)
         webView.load(urlRequest)
